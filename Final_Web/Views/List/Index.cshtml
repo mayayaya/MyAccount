@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Final_Web.List>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="font-weight-bold">你今天剁手手了嗎٩(ŏ﹏ŏ、)۶</h1>
+
+<div class="row">
+    <div class="col-md-2 text-center">
+        <p style="font-size:20px">
+            @Html.ActionLink("+新增支出", "Create")
+        </p>
+    </div>
+    <div class="col-md-3 offset-md-2">
+        @{
+            int total = 0;
+            foreach (var item in Model)
+            {
+                total += item.Money;
+            }
+            <p class="text-center font-weight-bold" style="font-size:25px; background: linear-gradient(transparent 30%, #b3f3ff 50%, transparent 90%); padding: 2px 1px;">
+                總支出&nbsp;
+                <span class="align-middle total-amount-price" style="font-size:45px; color:#0e5f9c">
+                    @total
+                </span>
+                &nbsp;元
+            </p>
+        }
+    </div>
+    <div class="col-md-2 offset-md-3 btn-group" style="font-size:20px">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+            支出分類
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">飲食</a>
+            <a class="dropdown-item" href="#">休閒娛樂</a>
+            <a class="dropdown-item" href="#">交通</a>
+            <a class="dropdown-item" href="#">其他</a>
+        </div>
+    </div>
+</div>
+<table class="table" style="font-size:20px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Money)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Money)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td style="font-size:20px">
+                @Html.ActionLink("修改", "Edit", new { id = item.SN }) |
+                @Html.ActionLink("細節", "Details", new { id = item.SN }) |
+                @Html.ActionLink("刪除", "Delete", new { id = item.SN })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>    
+    
+</script>
+
+
+

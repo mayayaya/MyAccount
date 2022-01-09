@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayaの記帳系統</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl navbar-dark navbar-fixed-top" style="background-color:#06276c">
+        @Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../Home/About">關於</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Home/Contact">影片</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../List">記帳</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="jumbotron jumbotron-fluid text-white text-center" style="background-color:#0e5f9c">
+        <h1 class="font-weight-bold display-3">Mayaの記帳系統</h1>
+        <h3>A penny saved is a penny earned.<br>A fool and his money are soon parted.</h3>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Maya的 ASP.NET 記帳程式</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
